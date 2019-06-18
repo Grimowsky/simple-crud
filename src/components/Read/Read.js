@@ -3,15 +3,9 @@ import "./Read.css";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Read extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      input: ""
-    };
-  }
-
   onInsert = () => {
     fetch("http://localhost:3001/", {
       method: "get"
@@ -24,22 +18,20 @@ class Read extends React.Component {
 
   render() {
     return (
-      <div className="form-container">
-        <InputGroup className="mb-3">
-          <FormControl
-            aria-describedby="basic-addon1"
-            placeholder="Get values from database"
-          />
-          <InputGroup.Prepend>
-            <Button
-              className="buttonWidth"
-              variant="outline-secondary"
-              onClick={this.onInsert}
-            >
-              GET
-            </Button>
-          </InputGroup.Prepend>
-        </InputGroup>
+      <div
+        onClick={this.onInsert}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          fontSize: "16px",
+          width: "100%",
+          paddingTop: 10,
+          paddingBottom: 10
+        }}
+      >
+        <FontAwesomeIcon icon="angle-double-down" size="3x" />{" "}
+        <span style={{ textAlign: "center" }}>Get Values</span>
       </div>
     );
   }
